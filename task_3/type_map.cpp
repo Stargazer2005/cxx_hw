@@ -80,28 +80,27 @@ struct B {
 int main() {
   using namespace type_list;
 
-  TypeMap<int, A, double, B> myTypeMap;
+  TypeMap<int, A, double, B> type_map;
 
-  myTypeMap.AddValue<int>(42);
-  myTypeMap.AddValue<double>(3.14);
-  myTypeMap.AddValue<A>({"Hello, TypeMap!"});
-  myTypeMap.AddValue<B>({10});
+  type_map.AddValue<int>(42);
+  type_map.AddValue<double>(3.14);
+  type_map.AddValue<A>({"Hello, TypeMap!"});
+  type_map.AddValue<B>({10});
 
-  std::cout << "Value for int: " << myTypeMap.GetValue<int>() << std::endl;
-  std::cout << "Value for double: " << myTypeMap.GetValue<double>()
-            << std::endl;
-  std::cout << "Value for A: " << myTypeMap.GetValue<A>().value << std::endl;
-  std::cout << "Value for B: " << myTypeMap.GetValue<B>().value << std::endl;
+  std::cout << "Value for int: " << type_map.GetValue<int>() << std::endl;
+  std::cout << "Value for double: " << type_map.GetValue<double>() << std::endl;
+  std::cout << "Value for A: " << type_map.GetValue<A>().value << std::endl;
+  std::cout << "Value for B: " << type_map.GetValue<B>().value << std::endl;
 
-  std::cout << "Contains int? " << (myTypeMap.Contains<int>() ? "Yes" : "No")
+  std::cout << "Contains int? " << (type_map.Contains<int>() ? "Yes" : "No")
             << std::endl;
 
   std::cout << "Value for double before removal: "
-            << myTypeMap.GetValue<double>() << std::endl;
+            << type_map.GetValue<double>() << std::endl;
 
-  // myTypeMap.RemoveValue<double>();
+  // type_map.RemoveValue<double>();
 
-  std::cout << "Value for double after removal: "
-            << myTypeMap.GetValue<double>() << std::endl;
+  std::cout << "Value for double after removal: " << type_map.GetValue<double>()
+            << std::endl;
   return 0;
 }

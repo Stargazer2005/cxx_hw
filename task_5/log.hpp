@@ -11,9 +11,9 @@ class Log {
  public:
   static Log* Instance();
 
-  void message(LogLevel level, const std::string& msg);
+  void Message(LogLevel level, const std::string& msg);
 
-  void print() const;
+  void Print() const;
 
   Log(const Log&) = delete;
   Log& operator=(const Log&) = delete;
@@ -22,7 +22,7 @@ class Log {
   Log() = default;
   ~Log() = default;
 
-  static std::string format_time(time_t timestamp);
+  static std::string FormatTime(time_t timestamp);
 
   struct LogEntry {
     LogEntry(time_t ts, LogLevel lvl, const std::string& msg)

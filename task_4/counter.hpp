@@ -1,20 +1,20 @@
 #pragma once
 
 template <typename T>
-class counter {
+class Counter {
  public:
-  static size_t count() noexcept { return m_count; }
+  static size_t Count() noexcept { return m_count; }
 
  protected:
-  counter() noexcept { ++m_count; }
+  Counter() noexcept { ++m_count; }
 
-  counter(const counter&) noexcept { ++m_count; }
-  counter& operator=(const counter&) noexcept = default;
+  Counter(const Counter&) noexcept { ++m_count; }
+  Counter& operator=(const Counter&) noexcept = default;
 
-  counter(counter&&) noexcept = default;
-  counter& operator=(counter&&) noexcept = default;
+  Counter(Counter&&) noexcept = default;
+  Counter& operator=(Counter&&) noexcept = default;
 
-  ~counter() { --m_count; }
+  ~Counter() { --m_count; }
 
  private:
   static inline size_t m_count = 0;

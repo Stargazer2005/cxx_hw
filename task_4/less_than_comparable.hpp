@@ -1,7 +1,7 @@
 #pragma once
 
 template <typename Derived>
-class less_than_comparable {
+class LessThanComparable {
  public:
   friend bool operator>(const Derived& lhs, const Derived& rhs) {
     return rhs < lhs;

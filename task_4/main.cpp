@@ -4,10 +4,10 @@
 #include "counter.hpp"
 #include "less_than_comparable.hpp"
 
-class Number : public less_than_comparable<Number>, public counter<Number> {
+class Number : public LessThanComparable<Number>, public Counter<Number> {
  public:
   Number(int value) : m_value{value} {}
-  int value() const { return m_value; }
+  int Value() const { return m_value; }
   bool operator<(Number const& other) const { return m_value < other.m_value; }
 
  private:
@@ -26,7 +26,7 @@ int main() {
   assert(three > two);
   assert(one < two);
 
-  std::cout << "Count: " << counter<Number>::count() << std::endl;
+  std::cout << "Count: " << Counter<Number>::Count() << std::endl;
 
   return 0;
 }
