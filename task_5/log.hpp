@@ -37,5 +37,5 @@ class Log {
   static Log* instance;
 
   static constexpr inline int max_entries = 10;
-  static const std::unordered_map<LogLevel, const char*> levelStrings;
+  static const std::unordered_map<LogLevel, const char*> level_strings;
 };

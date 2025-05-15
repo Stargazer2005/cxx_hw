@@ -6,7 +6,7 @@
 
 Log* Log::instance = nullptr;
 
-const std::unordered_map<LogLevel, const char*> Log::levelStrings = {
+const std::unordered_map<LogLevel, const char*> Log::level_strings = {
     {LOG_NORMAL, "NORMAL: "},
     {LOG_WARNING, "WARNING: "},
     {LOG_ERROR, "ERROR: "}};
@@ -29,7 +29,7 @@ void Log::Print() const {
 
   for (const auto& entry : entries) {
     std::cout << "[" << FormatTime(entry.timestamp) << "] "
-              << levelStrings.at(entry.level) << entry.message << std::endl;
+              << level_strings.at(entry.level) << entry.message << std::endl;
   }
 
   std::cout << "======================" << std::endl;
