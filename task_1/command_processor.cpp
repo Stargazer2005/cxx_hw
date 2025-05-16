@@ -38,15 +38,15 @@ void CommandProcessor::processCommand(const std::string& command) {
 }
 
 void CommandProcessor::printHelp() const {
-  std::cout << "Available commands:\n";
   std::cout
-      << "  createUser {userId} {username} [email] [age] - Create new user\n";
-  std::cout << "  deleteUser {userId} - Delete user\n";
-  std::cout << "  allUsers - List all users\n";
-  std::cout << "  getUser {userId} - Show user info\n";
-  std::cout << "  createGroup {groupId} - Create new group\n";
-  std::cout << "  deleteGroup {groupId} - Delete group\n";
-  std::cout << "  allGroups - List all groups\n";
-  std::cout << "  getGroup {groupId} - Show group info\n";
-  std::cout << "  addUserToGroup {userId} {groupId} - Add user to group\n";
+      << "Available commands:\n"
+      << "  createUser {userId} {username} [email] [age] - Create new user\n"
+      << "  deleteUser {userId} - Delete user\n"
+      << "  allUsers - List all users\n"
+      << "  getUser {userId} - Show user info\n"
+      << "  createGroup {groupId} - Create new group\n"
+      << "  deleteGroup {groupId} - Delete group\n"
+      << "  allGroups - List all groups\n"
+      << "  getGroup {groupId} - Show group info\n"
+      << "  addUserToGroup {userId} {groupId} - Add user to group\n";
 }
