@@ -14,9 +14,9 @@ class CheckpointDirector {
     builder = std::move(b);
   }
 
-  void Construct(const std::vector<Checkpoint>& checkpoints) {
+  std::string Construct(const std::vector<Checkpoint>& checkpoints) {
     for (const auto& cp : checkpoints) builder->AddCheckpoint(cp);
-    builder->GetResult();
+    return builder->GetResult();
   }
 
  private:

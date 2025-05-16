@@ -11,9 +11,11 @@ class PenaltyCalculatorBuilder : public CheckpointBuilder {
     if (!cp.IsMandatory()) total_penalty += cp.Penalty();
   }
 
-  void GetResult() const override {
-    std::cout << "\nTotal penalty for skipped optional checkpoints: "
-              << total_penalty << " hrs\n";
+  std::string GetResult() const override {
+    std::ostringstream oss;
+    oss << "\nTotal penalty for skipped optional checkpoints: " << std::fixed
+        << std::setprecision(2) << total_penalty << " hrs";
+    return oss.str();
   }
 
  private:

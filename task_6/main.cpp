@@ -18,11 +18,11 @@ int main() {
 
   auto text_builder = std::make_unique<TextOutputBuilder>();
   CheckpointDirector director(std::move(text_builder));
-  director.Construct(checkpoints);
+  std::cout << director.Construct(checkpoints);
 
   auto penalty_builder = std::make_unique<PenaltyCalculatorBuilder>();
   director.SetBuilder(std::move(penalty_builder));
-  director.Construct(checkpoints);
+  std::cout << director.Construct(checkpoints);
 
   return 0;
 }

@@ -11,19 +11,22 @@ class TextOutputBuilder : public CheckpointBuilder {
     checkpoints.push_back(cp);
   }
 
-  void GetResult() const override {
-    std::cout << "Checkpoint list:\n";
+  std::string GetResult() const override {
+    std::ostringstream oss;
+
+    oss << "Checkpoint list:\n";
     int index = 1;
     for (const auto& cp : checkpoints) {
-      std::cout << index++ << ". " << cp.Name() << " (" << cp.Latitude() << ", "
-                << cp.Longitude() << ") - ";
+      oss << index++ << ". " << cp.Name() << " (" << cp.Latitude() << ", "
+          << cp.Longitude() << ") - ";
 
       if (cp.IsMandatory())
-        std::cout << "Stage DQ\n";
+        oss << "Stage DQ\n";
       else
-        std::cout << std::setprecision(2) << std::fixed << cp.Penalty()
-                  << " hrs\n";
+        oss << std::setprecision(2) << std::fixed << cp.Penalty() << " hrs\n";
     }
+
+    return oss.str();
   }
 
  private:
