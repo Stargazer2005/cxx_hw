@@ -16,12 +16,10 @@ int main() {
       Checkpoint("Finish", 55.7522, 37.6156),
       Checkpoint("Bonus Stage", 43.2567, 42.8765).SetPenalty(1.8)};
 
-  auto text_builder = std::make_unique<TextOutputBuilder>();
-  CheckpointDirector director(std::move(text_builder));
+  CheckpointDirector director(std::make_unique<TextOutputBuilder>());
   std::cout << director.Construct(checkpoints);
 
-  auto penalty_builder = std::make_unique<PenaltyCalculatorBuilder>();
-  director.SetBuilder(std::move(penalty_builder));
+  director.SetBuilder(std::make_unique<PenaltyCalculatorBuilder>());
   std::cout << director.Construct(checkpoints);
 
   return 0;

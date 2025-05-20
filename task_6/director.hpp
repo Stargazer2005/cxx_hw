@@ -7,10 +7,10 @@
 
 class CheckpointDirector {
  public:
-  explicit CheckpointDirector(std::unique_ptr<CheckpointBuilder> b)
+  explicit CheckpointDirector(std::unique_ptr<CheckpointBuilder>&& b)
       : builder(std::move(b)) {}
 
-  void SetBuilder(std::unique_ptr<CheckpointBuilder> b) {
+  void SetBuilder(std::unique_ptr<CheckpointBuilder>&& b) {
     builder = std::move(b);
   }
 
