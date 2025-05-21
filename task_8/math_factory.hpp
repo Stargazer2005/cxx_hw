@@ -24,7 +24,11 @@ class MathFactory {
   void DeleteConstant(int value);
 
  private:
-  MathFactory() = default;
+  MathFactory() {
+    for (int i = -5; i <= 256; ++i)
+      constants[i] = std::make_shared<Constant>(i);
+  };
+
   ~MathFactory() = default;
 
   std::unordered_map<std::string, std::weak_ptr<Variable>> variables;
