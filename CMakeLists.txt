@@ -9,7 +9,7 @@ message(${TASKS})
 foreach(TASK ${TASKS})
     get_filename_component(TASK_NAME ${TASK} NAME)
 
-    file(GLOB TASK_SOURCES
+    file(GLOB_RECURSE TASK_SOURCES
         ${TASK}/*.hpp
         ${TASK}/*.cpp
     )
